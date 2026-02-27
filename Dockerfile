@@ -1,19 +1,10 @@
-# Start from clean base image
 FROM runpod/worker-comfyui:5.1.0-base
 
-# Install required custom node (DrawText+ comes from Essentials)
-RUN comfy-node-install comfyui_essentials
+# Install essentials
+RUN comfy-node-install comfyui-essentials
 
-# (Optional but safer) Install kjnodes if needed later
-# RUN comfy-node-install comfyui-kjnodes
+# Copy input image
+COPY input/example.png /comfyui/input/example.png
 
-# Copy static input image required by LoadImage node
-# Make sure you have:
-# project-folder/
-# ├── Dockerfile
-# └── input/
-#     └── example.png
-# COPY input/ /comfyui/input/
-
-# (Optional) If you want to guarantee font availability
-# COPY ShareTechMono-Regular.ttf /comfyui/fonts/
+# Copy font explicitly
+COPY ShareTechMono-Regular.ttf /comfyui/fonts/ShareTechMono-Regular.ttf
