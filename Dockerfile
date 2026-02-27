@@ -13,7 +13,7 @@ RUN comfy-node-install comfyui_essentials
 # ├── Dockerfile
 # └── input/
 #     └── example.png
-COPY input/ /comfyui/input/
+# COPY input/ /comfyui/input/
 
 # (Optional) If you want to guarantee font availability
 # COPY ShareTechMono-Regular.ttf /comfyui/fonts/
